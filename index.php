@@ -26,7 +26,7 @@
 
 	<?php else : ?>
 
-		<h2>Not Found</h2>
+		<h2>Ничего не найдено</h2>
 
 	<?php endif; ?>
 

@@ -1,28 +1,11 @@
 /*   
-Theme Name: The HTML5 Reset Theme
-Theme URI: http://html5reset.org
-Description: A style-free theme to get you started on an HTML5-based Wordpress theme of your own.
-Author: Monkey Do!
-Author URI: http://monkeydo.biz
+Theme Name: Vburlak Theme
+Theme URI: http://site.domain
+Description: .. a theme by Vburlak
+Author: Vburlak
+Author URI: http://vburlak.ru
 Version: 1
 */
-
-/*
-	HTML5 Reset Wordpress Theme :: style.css
-	----------------------------------------------------------
-	We have learned much from/been inspired by/taken code where offered from:
-	
-	Eric Meyer					:: http://ericmeyer.com
-	HTML5 Doctor				:: http://html5doctor.com
-	and the HTML5 Boilerplate	:: http://html5boilerplate.com
-	
-	Special thanks: The Wordpress theme owes its start to an empty theme authored 
-		by Chris Coyier & Jeff Starr: http://digwp.com
-	
--------------------------------------------------------------------------------*/
-
-/* Let's default this puppy out
--------------------------------------------------------------------------------*/
 
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
 	margin: 0;
@@ -162,7 +145,7 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 /* And here begins the Wordpress fun.
 -------------------------------------------------------------------------------*/
 
-#page-wrap {width: 960px; margin: 20px auto;}
+#page-wrap {width: 960px; margin: 20px auto; position: relative;}
 
 .post {}
 
@@ -223,6 +206,9 @@ ol.commentlist li.parent {border-left: 5px solid #111;}
 ol.commentlist li.thread-alt {}
 ol.commentlist li.thread-even {}
 ol.commentlist li.thread-odd {}
+.aligncenter {display: block; margin-left: auto; margin-right: auto}
+.alignright {float:right; margin:0 0 1em 1em}
+.alignleft {float:left; margin:0 1em 1em 0}
 
 
 /* Print styles!

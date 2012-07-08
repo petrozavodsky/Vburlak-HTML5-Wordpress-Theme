@@ -43,5 +43,20 @@
     }
     
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
+    
+    add_theme_support( 'post-thumbnails', array( 'post' ) );
 
+    add_theme_support('menus');
+    
+    register_nav_menus(array(  
+			'primary' => 'Главное меню',
+			//'secondary' => 'Второстепенное меню',
+			//'footer' => 'Меню для Подвала',
+		    ));
+    function my_wp_nav_menu_args($args=''){  
+			$args['container'] = '';  
+			return $args;  
+		    }
+    add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
+    
 ?>

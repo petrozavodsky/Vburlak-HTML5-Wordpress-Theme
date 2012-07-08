@@ -104,5 +104,9 @@
 		<header id="header">
 			<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
 			<div class="description"><?php bloginfo('description'); ?></div>
+			
+			<?php wp_nav_menu( array( 'theme_location' => 'primary',) );?>
+			
 		</header>
-
+		
+		<div id="content">

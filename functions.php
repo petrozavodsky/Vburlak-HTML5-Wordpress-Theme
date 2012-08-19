@@ -34,7 +34,7 @@
     	register_sidebar(array(
     		'name' => __('Sidebar Widgets','html5reset' ),
     		'id'   => 'sidebar-widgets',
-    		'description'   => __( 'These are widgets for the sidebar.','html5reset' ),
+    		'description'   => __( 'These are widgets for the sidebar.'),
     		'before_widget' => '<div id="%1$s" class="widget %2$s">',
     		'after_widget'  => '</div>',
     		'before_title'  => '<h2>',
@@ -58,5 +58,20 @@
 			return $args;  
 		    }
     add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
+    
+    // HOVERS for current Post Type in menu
+    
+    //NEED TO CONFIG
+    
+    function change_page_menu_classes($menu){
+    	global $post;
+    	if (get_post_type($post) == 'post-type-name')
+    	{
+    		$menu = str_replace( 'current_page_parent', '', $menu ); // remove all current_page_parent classes
+    		$menu = str_replace( 'page-item-366', 'page-item-366 current_page_parent', $menu ); // add the current_page_parent class to the page you want
+    	}
+    	return $menu;
+    }
+    add_filter( 'wp_page_menu', 'change_page_menu_classes', 0 );
     
 ?>

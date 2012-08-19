@@ -63,15 +63,23 @@
     
     //NEED TO CONFIG
     
-    function change_page_menu_classes($menu){
-    	global $post;
-    	if (get_post_type($post) == 'post-type-name')
+    // WP-eCommerce items - have post-type "wpsc-product"
+    
+    function tg_add_class_to_menu($classes)
+    {
+    	// team is my custom post type
+    	if (is_singular('wpsc-product'))
     	{
-    		$menu = str_replace( 'current_page_parent', '', $menu ); // remove all current_page_parent classes
-    		$menu = str_replace( 'page-item-366', 'page-item-366 current_page_parent', $menu ); // add the current_page_parent class to the page you want
+    		// we're viewing a custom post type, so remove the 'current-page' from all menu items.
+    		$classes = array_filter($classes, "remove_parent");
+    
+    		// add the current page class to a specific menu item.
+    		if (in_array('page-item-23', $classes)) $classes[] = 'current-page-ancestor';
     	}
-    	return $menu;
+    
+    	return $classes;
     }
-    add_filter( 'wp_page_menu', 'change_page_menu_classes', 0 );
+    
+    if (!is_admin()) { add_filter('nav_menu_css_class', 'tg_add_class_to_menu'); }
     
 ?>

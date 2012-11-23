@@ -42,6 +42,9 @@
     	));
     }
     
+    /* Disable WordPress Admin Bar for all users but admins. */
+    show_admin_bar(false);
+    
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
     
     add_theme_support( 'post-thumbnails', array( 'post' ) );

@@ -95,6 +95,14 @@
     }
     add_action('admin_menu', 'disable_default_dashboard_widgets');
     
+    /* Removing comment admin bar button */
+    function removeAdminBarCommentButton() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
+        $wp_admin_bar->remove_menu('updates');
+    }
+    add_action( 'wp_before_admin_bar_render', 'removeAdminBarCommentButton' );
+    
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
     
     add_theme_support( 'post-thumbnails', array( 'post' ) );

@@ -93,17 +93,7 @@
          remove_meta_box('dashboard_primary', 'dashboard', 'core');  
          remove_meta_box('dashboard_secondary', 'dashboard', 'core');  
     }
-    add_action('admin_menu', 'disable_default_dashboard_widgets');  
-    
-    /* customizing main Wordpress admin menu */
-    add_action('admin_menu', 'remove_menus', 102);
-    function remove_menus()
-    {
-    	global $submenu;
-//    	remove_menu_page( 'upload.php' );
-//    	remove_menu_page( 'link-manager.php' );
-//    	remove_menu_page( 'edit-comments.php' );
-    }
+    add_action('admin_menu', 'disable_default_dashboard_widgets');
     
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
     

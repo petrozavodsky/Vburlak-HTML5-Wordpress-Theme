@@ -15,7 +15,7 @@
 		function core_mods() {
 			if ( !is_admin() ) {
 				wp_deregister_script('jquery');
-				wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"), false);
+				wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"), false);
 				wp_enqueue_script('jquery');
 			}
 		}
@@ -45,29 +45,42 @@
 	function remove_menus () {
 	global $menu;
 		$restricted = array(
-							__('Dashboard'), 
-							__('Posts'), 
-							__('Media'), 
-							__('Links'), 
-							__('Pages'), 
-							__('Appearance'), 
-							__('Tools'), 
-							__('Users'), 
-							__('Settings'), 
-							__('Comments'), 
-							__('Plugins')
-						);
+				__('Dashboard'), 
+				__('Posts'), 
+				__('Media'), 
+				__('Links'), 
+				__('Pages'), 
+				__('Appearance'), 
+				__('Tools'), 
+				__('Users'), 
+				__('Settings'), 
+				__('Comments'), 
+				__('Plugins')
+			);
 		end ($menu);
 		while (prev($menu)){
 			$value = explode(' ',$menu[key($menu)][0]);
 			if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
 		}
 	}
-//	add_action('admin_menu', 'remove_menus');
     
     
     /* Disable WordPress Admin Bar for all users but admins. */
     show_admin_bar(false);
+    
+    /* Disable WordPress Dashboard Admin Bar Add Button */
+    function removeDashboardAdminBarAddButton() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('new-content');
+        $wp_admin_bar->remove_menu('new-post');
+        $wp_admin_bar->remove_menu('new-page');
+        $wp_admin_bar->remove_menu('new-media');
+        $wp_admin_bar->remove_menu('new-link');
+        $wp_admin_bar->remove_menu('new-user');
+        $wp_admin_bar->remove_menu('new-theme');
+        $wp_admin_bar->remove_menu('new-plugin');
+    }
+    add_action( 'wp_before_admin_bar_render', 'removeDashboardAdminBarAddButton' );
     
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
     

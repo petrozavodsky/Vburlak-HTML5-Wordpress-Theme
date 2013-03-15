@@ -1,6 +1,6 @@
 <?php
         // Translations can be filed in the /languages/ directory
-        load_theme_textdomain( 'html5reset', TEMPLATEPATH . '/languages' );
+        load_theme_textdomain( 'vburlakFramework', TEMPLATEPATH . '/languages' );
  
         $locale = get_locale();
         $locale_file = TEMPLATEPATH . "/languages/$locale.php";
@@ -15,7 +15,7 @@
 		function core_mods() {
 			if ( !is_admin() ) {
 				wp_deregister_script('jquery');
-				wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false);
+				wp_register_script('jquery', ("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false);
 				wp_enqueue_script('jquery');
 			}
 		}
@@ -32,7 +32,7 @@
     
     if (function_exists('register_sidebar')) {
     	register_sidebar(array(
-    		'name' => __('Sidebar Widgets','html5reset' ),
+    		'name' => __('Sidebar Widgets','vburlakFramework' ),
     		'id'   => 'sidebar-widgets',
     		'description'   => __( 'These are widgets for the sidebar.'),
     		'before_widget' => '<div id="%1$s" class="widget %2$s">',

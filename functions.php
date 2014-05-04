@@ -62,8 +62,7 @@ function remove_menus()
     $restricted = array(
 //				__('Dashboard'), 
 //				__('Posts'), 
-//				__('Media'), 
-//				__('Links'), 
+//				__('Media'),
 //				__('Pages'), 
 //				__('Appearance'), 
 //				__('Tools'), 
@@ -95,7 +94,6 @@ function removeDashboardAdminBarAddButton()
     $wp_admin_bar->remove_menu('new-post');
     $wp_admin_bar->remove_menu('new-page');
     $wp_admin_bar->remove_menu('new-media');
-    $wp_admin_bar->remove_menu('new-link');
     $wp_admin_bar->remove_menu('new-user');
     $wp_admin_bar->remove_menu('new-theme');
     $wp_admin_bar->remove_menu('new-plugin');
